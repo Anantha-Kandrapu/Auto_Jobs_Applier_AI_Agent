@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>README.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///Users/anantkan/Auto_Jobs_Applier_AI_Agent/R%3A%5C2.Travail%5C1.Enseignement%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css"><link rel="stylesheet" href="file:///Users/anantkan/Auto_Jobs_Applier_AI_Agent/D%3A%5Crdaros%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css">
+</head>
+
+<body>
+    <p><a name="top"></a></p>
+<div align="center">
+<img src="file:///Users/anantkan/Auto_Jobs_Applier_AI_Agent/assets/AIHawk.png">
+</div><h1 id="aihawk-the-first-jobs-applier-ai-agent">AIHawk the first Jobs Applier AI Agent</h1>
+<p><img src="https://github.com/feder-cr/Auto_Jobs_Applier_AIHawk/actions/workflows/ci.yml/badge.svg" alt="CI"></p>
+<p><strong>🤖🔍 Your AI-powered job search assistant. Automate applications, get personalized recommendations and land your dream job faster.</strong></p>
+<p>Join our community: <a href="https://t.me/AIhawkCommunity">Telegram</a> (for Normal users) | Discord (for Open Source contributors)</p>
+<p><a href="https://t.me/AIhawkCommunity"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white" alt="Telegram"></a><br>
+<img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&amp;logo=discord&amp;logoColor=white" alt="Discord badge"></p>
+
+<p><strong>Creator</strong> <a href="https://github.com/feder-cr">feder-cr</a>, Co-Founder of AIHawk </br><br>
+As AIHawk is focusing on their proprietary product - solving problems in hiring for companies, currently this project is led, managed, and maintained by a group of open-source contributors, with a focus on building tools to help job seekers land the jobs they deserve.</p>
+<p><strong>Project Maintainers / Leads</strong>: <a href="https://github.com/surapuramakhil">surapuramakhil</a>, <a href="https://github.com/sarob">sarob</a>, <a href="https://github.com/cjbbb">cjbbb</a></p>
+<p>We are looking to expand our FOSS maintainers team! If you are from a non-technical background, you can be part of the project management team, triaging issues, and shaping the project. If you are a technical person, you can join in doing code reviews, participating in releases, and building a better version of this product.</p>
+<p>reach out to <a href="https://github.com/surapuramakhil">surapuramakhil</a> on Discord. <a href="#special-thanks">Special thanks</a></p>
+<p>Auto_Jobs_Applier_AIHawk is continuously evolving, and your feedback, suggestions, and contributions are highly valued. Feel free to open issues, suggest enhancements, or submit pull requests to help improve the project. Let's work together to make Auto_Jobs_Applier_AIHawk a powerful tool for job seekers worldwide.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#disclaimer">Disclaimer</a></li>
+</ol>
+<h2 id="introduction">Introduction</h2>
+<p>Auto_Jobs_Applier_AIHawk is a cutting-edge, automated tool designed to revolutionize the job search and application process. In today's fiercely competitive job market, where opportunities can vanish in the blink of an eye, this program offers job seekers a significant advantage by leveraging the power of automation and artificial intelligence.</p>
+<h3 id="the-challenge-of-modern-job-hunting">The Challenge of Modern Job Hunting</h3>
+<p>In the digital age, the job search landscape has undergone a dramatic transformation. While online platforms have opened up a world of opportunities, they have also intensified competition. Job seekers often find themselves spending countless hours scrolling through listings, tailoring applications, and repetitively filling out forms. This process can be not only time-consuming but also emotionally draining, leading to job search fatigue and missed opportunities.</p>
+<h2 id="installation">Installation</h2>
+<p><strong>Confirmed successful runs on the following:</strong></p>
+<ul>
+<li>Operating Systems:
+<ul>
+<li>Windows 10</li>
+<li>Ubuntu 22</li>
+</ul>
+</li>
+<li>Python versions:
+<ul>
+<li>3.10</li>
+<li>3.11.9(64b)</li>
+<li>3.12.5(64b)</li>
+</ul>
+</li>
+</ul>
+<h3 id="option-1-using-python-virtual-environment">Option 1: Using Python Virtual Environment</h3>
+<ol>
+<li>
+<p><strong>Download and Install Python:</strong></p>
+<p>Ensure you have the last Python version  installed. If not, download and install it from Python's official website. For detailed instructions, refer to the tutorials:</p>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/how-to-install-python-on-windows/">How to Install Python on Windows</a></li>
+<li><a href="https://www.geeksforgeeks.org/how-to-install-python-on-linux/">How to Install Python on Linux</a></li>
+<li><a href="https://www.geeksforgeeks.org/how-to-download-and-install-python-latest-version-on-macos-mac-os-x/">How to Download and Install Python on macOS</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Download and Install Google Chrome:</strong></p>
+<ul>
+<li>Download and install the latest version of Google Chrome from its default location on the <a href="https://www.google.com/chrome">official website</a>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Clone the repository:</strong></p>
+<pre class="hljs"><code><div>git <span class="hljs-built_in">clone</span> https://github.com/feder-cr/Auto_Jobs_Applier_AIHawk.git
+
+<span class="hljs-built_in">cd</span> Auto_Jobs_Applier_AIHawk
+</div></code></pre>
+</li>
+<li>
+<p><strong>Activate virtual environment:</strong></p>
+<p>For Unix-based machines -</p>
+<pre class="hljs"><code><div>python3 -m venv virtual
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-built_in">source</span> virtual/bin/activate
+</div></code></pre>
+<p>or for Windows-based machines -</p>
+<pre class="hljs"><code><div>.\virtual\Scripts\activate
+</div></code></pre>
+</li>
+<li>
+<p><strong>Install the required packages:</strong></p>
+<p>Before installing the required packages, make sure to install https://visualstudio.microsoft.com/visual-cpp-build-tools/ and select &quot;Desktop development with C++&quot;.</p>
+<pre class="hljs"><code><div>pip install -r requirements.txt
+</div></code></pre>
+</li>
+</ol>
+<h2 id="configuration">Configuration</h2>
+<h3 id="1-secretsyaml">1. secrets.yaml</h3>
+<p>This file contains sensitive information. Never share or commit this file to version control.</p>
+<ul>
+<li><code>llm_api_key: [Your OpenAI or Ollama API key or Gemini API key]</code>
+<ul>
+<li>Replace with your OpenAI API key for GPT integration</li>
+<li>To obtain an API key, follow the tutorial at: <a href="https://medium.com/@lorenzozar/how-to-get-your-own-openai-api-key-f4d44e60c327">https://medium.com/@lorenzozar/how-to-get-your-own-openai-api-key-f4d44e60c327</a></li>
+<li>Note: You need to add credit to your OpenAI account to use the API. You can add credit by visiting the <a href="https://platform.openai.com/account/billing">OpenAI billing dashboard</a>.</li>
+<li>According to the <a href="https://community.openai.com/t/usage-tier-free-to-tier-1/919150">OpenAI community</a> and our users' reports, right after setting up the OpenAI account and purchasing the required credits, users still have a <code>Free</code> account type. This prevents them from having unlimited access to OpenAI models and allows only 200 requests per day. This might cause runtime errors such as:<br>
+<code>Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. ...}}</code><br>
+<code>{'error': {'message': 'Rate limit reached for gpt-4o-mini in organization &lt;org&gt; on requests per day (RPD): Limit 200, Used 200, Requested 1.}}</code><br>
+OpenAI will update your account automatically, but it might take some time, ranging from a couple of hours to a few days.<br>
+You can find more about your organization's limits on the <a href="https://platform.openai.com/settings/organization/limits">official page</a>.</li>
+<li>For obtaining Gemini API key visit <a href="https://ai.google.dev/gemini-api/docs/api-key">Google AI for Devs</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="11-configpy---customize-llm-model-endpoint">1.1 config.py - Customize LLM model endpoint</h4>
+<ul>
+<li><code>LLM_MODEL_TYPE</code>:
+<ul>
+<li>Choose the model type, supported: openai / ollama / claude / gemini</li>
+</ul>
+</li>
+<li><code>LLM_MODEL</code>:
+<ul>
+<li>Choose the LLM model, currently supported:
+<ul>
+<li>openai: gpt-4o</li>
+<li>ollama: llama2, mistral:v0.3</li>
+<li>claude: any model</li>
+<li>gemini: any model</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>LLM_API_URL</code>:
+<ul>
+<li>Link of the API endpoint for the LLM model
+<ul>
+<li>openai: <a href="https://api.pawan.krd/cosmosrp/v1">https://api.pawan.krd/cosmosrp/v1</a></li>
+<li>ollama: <a href="http://127.0.0.1:11434/">http://127.0.0.1:11434/</a></li>
+<li>claude: <a href="https://api.anthropic.com/v1">https://api.anthropic.com/v1</a></li>
+<li>gemini: <a href="https://aistudio.google.com/app/apikey">https://aistudio.google.com/app/apikey</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Note: To run local Ollama, follow the guidelines here: <a href="https://github.com/ollama/ollama">Guide to Ollama deployment</a>. The <code>LLM_API_URL</code> field is only required for Ollama.</li>
+</ul>
+<h3 id="2-plaintextresumeyaml">2. plain_text_resume.yaml</h3>
+<p>This file contains your resume information in a structured format. Fill it out with your personal details, education, work experience, and skills. This information is used to auto-fill application forms and generate customized resumes.</p>
+<p>Each section has specific fields to fill out:</p>
+<ul>
+<li>
+<p><code>personal_information:</code></p>
+<ul>
+<li>This section contains basic personal details to identify yourself and provide contact information.
+<ul>
+<li><strong>name</strong>: Your first name.</li>
+<li><strong>surname</strong>: Your last name or family name.</li>
+<li><strong>date_of_birth</strong>: Your birth date in the format DD/MM/YYYY.</li>
+<li><strong>country</strong>: The country where you currently reside.</li>
+<li><strong>city</strong>: The city where you currently live.</li>
+<li><strong>address</strong>: Your full address, including street and number.</li>
+<li><strong>zip_code</strong>: Your postal/ZIP code.</li>
+<li><strong>phone_prefix</strong>: The international dialing code for your phone number (e.g., +1 for the USA, +44 for the UK).</li>
+<li><strong>phone</strong>: Your phone number without the international prefix.</li>
+<li><strong>email</strong>: Your primary email address.</li>
+<li><strong>github</strong>: URL to your GitHub profile, if applicable.</li>
+<li><strong>linkedin</strong>: URL to your LinkedIn profile, if applicable.</li>
+</ul>
+</li>
+<li>Example</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-attr">personal_information:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">"Jane"</span>
+  <span class="hljs-attr">surname:</span> <span class="hljs-string">"Doe"</span>
+  <span class="hljs-attr">date_of_birth:</span> <span class="hljs-string">"01/01/1990"</span>
+  <span class="hljs-attr">country:</span> <span class="hljs-string">"USA"</span>
+  <span class="hljs-attr">city:</span> <span class="hljs-string">"New York"</span>
+  <span class="hljs-attr">address:</span> <span class="hljs-string">"123 Main St"</span>
+  <span class="hljs-attr">zip_code:</span> <span class="hljs-string">"520123"</span>
+  <span class="hljs-attr">phone_prefix:</span> <span class="hljs-string">"+1"</span>
+  <span class="hljs-attr">phone:</span> <span class="hljs-string">"5551234567"</span>
+  <span class="hljs-attr">email:</span> <span class="hljs-string">"jane.doe@example.com"</span>
+  <span class="hljs-attr">github:</span> <span class="hljs-string">"https://github.com/janedoe"</span>
+  <span class="hljs-attr">linkedin:</span> <span class="hljs-string">"https://www.linkedin.com/in/janedoe/"</span>
+</div></code></pre>
+</li>
+<li>
+<p><code>education_details:</code></p>
+<ul>
+<li>
+<p>This section outlines your academic background, including degrees earned and relevant coursework.</p>
+<ul>
+<li><strong>degree</strong>: The type of degree obtained (e.g., Bachelor's Degree, Master's Degree).</li>
+<li><strong>university</strong>: The name of the university or institution where you studied.</li>
+<li><strong>final_evaluation_grade</strong>: Your Grade Point Average or equivalent measure of academic performance.</li>
+<li><strong>start_date</strong>: The start year of your studies.</li>
+<li><strong>graduation_year</strong>: The year you graduated.</li>
+<li><strong>field_of_study</strong>: The major or focus area of your studies.</li>
+<li><strong>exam</strong>: A list of courses or subjects taken along with their respective grades.</li>
+</ul>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-attr">education_details:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">education_level:</span> <span class="hljs-string">"Bachelor's Degree"</span>
+    <span class="hljs-attr">institution:</span> <span class="hljs-string">"University of Example"</span>
+    <span class="hljs-attr">field_of_study:</span> <span class="hljs-string">"Software Engineering"</span>
+    <span class="hljs-attr">final_evaluation_grade:</span> <span class="hljs-string">"4/4"</span>
+    <span class="hljs-attr">start_date:</span> <span class="hljs-string">"2021"</span>
+    <span class="hljs-attr">year_of_completion:</span> <span class="hljs-string">"2023"</span>
+    <span class="hljs-attr">exam:</span>
+      <span class="hljs-attr">Algorithms:</span> <span class="hljs-string">"A"</span>
+      <span class="hljs-attr">Data Structures:</span> <span class="hljs-string">"B+"</span>
+      <span class="hljs-attr">Database Systems:</span> <span class="hljs-string">"A"</span>
+      <span class="hljs-attr">Operating Systems:</span> <span class="hljs-string">"A-"</span>
+      <span class="hljs-attr">Web Development:</span> <span class="hljs-string">"B"</span>
+</div></code></pre>
+</li>
+<li>
+<p><code>experience_details:</code></p>
+<ul>
+<li>
+<p>This section details your work experience, including job roles, companies, and key responsibilities.</p>
+<ul>
+<li><strong>position</strong>: Your job title or role.</li>
+<li><strong>company</strong>: The name of the company or organization where you worked.</li>
+<li><strong>employment_period</strong>: The timeframe during which you were employed in the role, using the format MM/YYYY - MM/YYYY.</li>
+<li><strong>location</strong>: The city and country where the company is located.</li>
+<li><strong>industry</strong>: The industry or field in which the company operates.</li>
+<li><strong>key_responsibilities</strong>: A list of major responsibilities or duties you had in the role, e.g. responsibility: &quot;Developed web applications using React and Node.js&quot;.</li>
+<li><strong>skills_acquired</strong>: Skills or expertise gained through this role, e.g. &quot;React&quot;.</li>
+</ul>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-attr">experience_details:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">position:</span> <span class="hljs-string">"Software Developer"</span>
+    <span class="hljs-attr">company:</span> <span class="hljs-string">"Tech Innovations Inc."</span>
+    <span class="hljs-attr">employment_period:</span> <span class="hljs-string">"06/2021 - Present"</span>
+    <span class="hljs-attr">location:</span> <span class="hljs-string">"San Francisco, CA"</span>
+    <span class="hljs-attr">industry:</span> <span class="hljs-string">"Technology"</span>
+    <span class="hljs-attr">key_responsibilities:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">responsibility:</span> <span class="hljs-string">"Developed web applications using React and Node.js"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">responsibility:</span> <span class="hljs-string">"Collaborated with cross-functional teams to design and implement new features"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">responsibility:</span> <span class="hljs-string">"Troubleshot and resolved complex software issues"</span>
+    <span class="hljs-attr">skills_acquired:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"React"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"Node.js"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"Software Troubleshooting"</span>
+</div></code></pre>
+</li>
+<li>
+<p><code>projects:</code></p>
+<ul>
+<li>
+<p>Include notable projects you have worked on, including personal or professional projects.</p>
+<ul>
+<li><strong>name</strong>: The name or title of the project.</li>
+<li><strong>description</strong>: A brief summary of what the project involves or its purpose.</li>
+<li><strong>link</strong>: URL to the project, if available (e.g., GitHub repository, website).</li>
+</ul>
+</li>
+<li>
+<p>Example:</p>
+<pre class="hljs"><code><div><span class="hljs-attr">projects:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">"Weather App"</span>
+    <span class="hljs-attr">description:</span> <span class="hljs-string">"A web application that provides real-time weather information using a third-party API."</span>
+    <span class="hljs-attr">link:</span> <span class="hljs-string">"https://github.com/janedoe/weather-app"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">"Task Manager"</span>
+    <span class="hljs-attr">description:</span> <span class="hljs-string">"A task management tool with features for tracking and prioritizing tasks."</span>
+    <span class="hljs-attr">link:</span> <span class="hljs-string">"https://github.com/janedoe/task-manager"</span>
+</div></code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><code>achievements:</code></p>
+<ul>
+<li>
+<p>Highlight notable accomplishments or awards you have received.</p>
+<ul>
+<li><strong>name</strong>: The title or name of the achievement.</li>
+<li><strong>description</strong>: A brief explanation of the achievement and its significance.</li>
+</ul>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-attr">achievements:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">"Employee of the Month"</span>
+    <span class="hljs-attr">description:</span> <span class="hljs-string">"Recognized for exceptional performance and contributions to the team."</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">"Hackathon Winner"</span>
+    <span class="hljs-attr">description:</span> <span class="hljs-string">"Won first place in a national hackathon competition."</span>
+</div></code></pre>
+</li>
+<li>
+<p><code>certifications:</code></p>
+<ul>
+<li>
+<p>Include any professional certifications you have earned.</p>
+<ul>
+<li>name: &quot;PMP&quot;<br>
+description: &quot;Certification for project management professionals, issued by the Project Management Institute (PMI)&quot;</li>
+</ul>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-attr">certifications:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">"Certified Scrum Master"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">"AWS Certified Solutions Architect"</span>
+</div></code></pre>
+</li>
+<li>
+<p><code>languages:</code></p>
+<ul>
+<li>
+<p>Detail the languages you speak and your proficiency level in each.</p>
+<ul>
+<li><strong>language</strong>: The name of the language.</li>
+<li><strong>proficiency</strong>: Your level of proficiency (e.g., Native, Fluent, Intermediate).</li>
+</ul>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-attr">languages:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">language:</span> <span class="hljs-string">"English"</span>
+    <span class="hljs-attr">proficiency:</span> <span class="hljs-string">"Fluent"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">language:</span> <span class="hljs-string">"Spanish"</span>
+    <span class="hljs-attr">proficiency:</span> <span class="hljs-string">"Intermediate"</span>
+</div></code></pre>
+</li>
+<li>
+<p><code>interests:</code></p>
+<ul>
+<li>
+<p>Mention your professional or personal interests that may be relevant to your career.</p>
+<ul>
+<li><strong>interest</strong>: A list of interests or hobbies.</li>
+</ul>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-attr">interests:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">"Machine Learning"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">"Cybersecurity"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">"Open Source Projects"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">"Digital Marketing"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">"Entrepreneurship"</span>
+</div></code></pre>
+</li>
+<li>
+<p><code>availability:</code></p>
+<ul>
+<li>
+<p>State your current availability or notice period.</p>
+<ul>
+<li><strong>notice_period</strong>: The amount of time required before you can start a new role (e.g., &quot;2 weeks&quot;, &quot;1 month&quot;).</li>
+</ul>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-attr">availability:</span>
+  <span class="hljs-attr">notice_period:</span> <span class="hljs-string">"2 weeks"</span>
+</div></code></pre>
+</li>
+<li>
+<p><code>salary_expectations:</code></p>
+<ul>
+<li>
+<p>Provide your expected salary range.</p>
+<ul>
+<li><strong>salary_range_usd</strong>: The salary range you are expecting, expressed in USD.</li>
+</ul>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-attr">salary_expectations:</span>
+  <span class="hljs-attr">salary_range_usd:</span> <span class="hljs-string">"80000 - 100000"</span>
+</div></code></pre>
+</li>
+<li>
+<p><code>self_identification:</code></p>
+<ul>
+<li>
+<p>Provide information related to personal identity, including gender and pronouns.</p>
+<ul>
+<li><strong>gender</strong>: Your gender identity.</li>
+<li><strong>pronouns</strong>: The pronouns you use (e.g., He/Him, She/Her, They/Them).</li>
+<li><strong>veteran</strong>: Your status as a veteran (e.g., Yes, No).</li>
+<li><strong>disability</strong>: Whether you have a disability (e.g., Yes, No).</li>
+<li><strong>ethnicity</strong>: Your ethnicity.</li>
+</ul>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-attr">self_identification:</span>
+  <span class="hljs-attr">gender:</span> <span class="hljs-string">"Female"</span>
+  <span class="hljs-attr">pronouns:</span> <span class="hljs-string">"She/Her"</span>
+  <span class="hljs-attr">veteran:</span> <span class="hljs-string">"No"</span>
+  <span class="hljs-attr">disability:</span> <span class="hljs-string">"No"</span>
+  <span class="hljs-attr">ethnicity:</span> <span class="hljs-string">"Asian"</span>
+</div></code></pre>
+</li>
+<li>
+<p><code>legal_authorization:</code></p>
+<ul>
+<li>
+<p>Indicate your legal ability to work in various locations.</p>
+<ul>
+<li><strong>eu_work_authorization</strong>: Whether you are authorized to work in the European Union (Yes/No).</li>
+<li><strong>us_work_authorization</strong>: Whether you are authorized to work in the United States (Yes/No).</li>
+<li><strong>requires_us_visa</strong>: Whether you require a visa to work in the United States (Yes/No).</li>
+<li><strong>requires_us_sponsorship</strong>: Whether you require sponsorship to work in the United States (Yes/No).</li>
+<li><strong>requires_eu_visa</strong>: Whether you require a visa to work in the European Union (Yes/No).</li>
+<li><strong>legally_allowed_to_work_in_eu</strong>: Whether you are legally allowed to work in the European Union (Yes/No).</li>
+<li><strong>legally_allowed_to_work_in_us</strong>: Whether you are legally allowed to work in the United States (Yes/No).</li>
+<li><strong>requires_eu_sponsorship</strong>: Whether you require sponsorship to work in the European Union (Yes/No).</li>
+<li><strong>canada_work_authorization</strong>: Whether you are authorized to work in Canada (Yes/No).</li>
+<li><strong>requires_canada_visa</strong>: Whether you require a visa to work in Canada (Yes/No).</li>
+<li><strong>legally_allowed_to_work_in_canada</strong>: Whether you are legally allowed to work in Canada (Yes/No).</li>
+<li><strong>requires_canada_sponsorship</strong>: Whether you require sponsorship to work in Canada (Yes/No).</li>
+<li><strong>uk_work_authorization</strong>: Whether you are authorized to work in the United Kingdom (Yes/No).</li>
+<li><strong>requires_uk_visa</strong>: Whether you require a visa to work in the United Kingdom (Yes/No).</li>
+<li><strong>legally_allowed_to_work_in_uk</strong>: Whether you are legally allowed to work in the United Kingdom (Yes/No).</li>
+<li><strong>requires_uk_sponsorship</strong>: Whether you require sponsorship to work in the United Kingdom (Yes/No).</li>
+</ul>
+</li>
+<li>
+<p>Example:</p>
+<pre class="hljs"><code><div><span class="hljs-attr">legal_authorization:</span>
+<span class="hljs-attr">eu_work_authorization:</span> <span class="hljs-string">"Yes"</span>
+<span class="hljs-attr">us_work_authorization:</span> <span class="hljs-string">"Yes"</span>
+<span class="hljs-attr">requires_us_visa:</span> <span class="hljs-string">"No"</span>
+<span class="hljs-attr">requires_us_sponsorship:</span> <span class="hljs-string">"Yes"</span>
+<span class="hljs-attr">requires_eu_visa:</span> <span class="hljs-string">"No"</span>
+<span class="hljs-attr">legally_allowed_to_work_in_eu:</span> <span class="hljs-string">"Yes"</span>
+<span class="hljs-attr">legally_allowed_to_work_in_us:</span> <span class="hljs-string">"Yes"</span>
+<span class="hljs-attr">requires_eu_sponsorship:</span> <span class="hljs-string">"No"</span>
+<span class="hljs-attr">canada_work_authorization:</span> <span class="hljs-string">"Yes"</span>
+<span class="hljs-attr">requires_canada_visa:</span> <span class="hljs-string">"No"</span>
+<span class="hljs-attr">legally_allowed_to_work_in_canada:</span> <span class="hljs-string">"Yes"</span>
+<span class="hljs-attr">requires_canada_sponsorship:</span> <span class="hljs-string">"No"</span>
+<span class="hljs-attr">uk_work_authorization:</span> <span class="hljs-string">"Yes"</span>
+<span class="hljs-attr">requires_uk_visa:</span> <span class="hljs-string">"No"</span>
+<span class="hljs-attr">legally_allowed_to_work_in_uk:</span> <span class="hljs-string">"Yes"</span>
+<span class="hljs-attr">requires_uk_sponsorship:</span> <span class="hljs-string">"No"</span>
+</div></code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><code>work_preferences:</code></p>
+<ul>
+<li>
+<p>Specify your preferences for work arrangements and conditions.</p>
+<ul>
+<li><strong>remote_work</strong>: Whether you are open to remote work (Yes/No).</li>
+<li><strong>in_person_work</strong>: Whether you are open to in-person work (Yes/No).</li>
+<li><strong>open_to_relocation</strong>: Whether you are willing to relocate for a job (Yes/No).</li>
+<li><strong>willing_to_complete_assessments</strong>: Whether you are willing to complete job assessments (Yes/No).</li>
+<li><strong>willing_to_undergo_drug_tests</strong>: Whether you are willing to undergo drug testing (Yes/No).</li>
+<li><strong>willing_to_undergo_background_checks</strong>: Whether you are willing to undergo background checks (Yes/No).</li>
+</ul>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-attr">work_preferences:</span>
+  <span class="hljs-attr">remote_work:</span> <span class="hljs-string">"Yes"</span>
+  <span class="hljs-attr">in_person_work:</span> <span class="hljs-string">"No"</span>
+  <span class="hljs-attr">open_to_relocation:</span> <span class="hljs-string">"Yes"</span>
+  <span class="hljs-attr">willing_to_complete_assessments:</span> <span class="hljs-string">"Yes"</span>
+  <span class="hljs-attr">willing_to_undergo_drug_tests:</span> <span class="hljs-string">"No"</span>
+  <span class="hljs-attr">willing_to_undergo_background_checks:</span> <span class="hljs-string">"Yes"</span>
+</div></code></pre>
+</li>
+</ul>
+<h3 id="plus-datafolderexample">PLUS. data_folder_example</h3>
+<p>The <code>data_folder_example</code> folder contains a working example of how the files necessary for the bot's operation should be structured and filled out. This folder serves as a practical reference to help you correctly set up your work environment for the job search bot.</p>
+<h4 id="contents">Contents</h4>
+<p>Inside this folder, you'll find example versions of the key files:</p>
+<ul>
+<li><code>secrets.yaml</code></li>
+<li><code>plain_text_resume.yaml</code></li>
+</ul>
+<p>These files are already populated with fictitious but realistic data. They show you the correct format and type of information to enter in each file.</p>
+<h4 id="using-the-datafolderexample">Using the data_folder_example</h4>
+<p>Using this folder as a guide can be particularly helpful for:</p>
+<ol>
+<li>Understanding the correct structure of each configuration file</li>
+<li>Seeing examples of valid data for each field</li>
+<li>Having a reference point while filling out your personal files</li>
+</ol>
+<h2 id="usage">Usage</h2>
+<ol>
+<li>
+<p><strong>Data Folder:</strong><br>
+Ensure that your data_folder contains the following files:</p>
+<ul>
+<li><code>secrets.yaml</code></li>
+<li><code>plain_text_resume.yaml</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Output Folder:</strong><br>
+Contains the output of the bot.<br>
+TODO</p>
+</li>
+<li>
+<p><strong>Run the Bot:</strong></p>
+<p>Auto_Jobs_Applier_AIHawk offers flexibility in how it handles your PDF resume:</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>Resume and Cover Letter Generation:</strong></p>
+<pre class="hljs"><code><div>python main.py
+</div></code></pre>
+</li>
+</ul>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<h4 id="1-openai-api-rate-limit-errors">1. OpenAI API Rate Limit Errors</h4>
+<p><strong>Error Message:</strong></p>
+<p>openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: <a href="https://platform.openai.com/docs/guides/error-codes/api-errors">https://platform.openai.com/docs/guides/error-codes/api-errors</a>.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Check your OpenAI API billing settings at <a href="https://platform.openai.com/account/billing">https://platform.openai.com/account/billing</a></li>
+<li>Ensure you have added a valid payment method to your OpenAI account</li>
+<li>Note that ChatGPT Plus subscription is different from API access</li>
+<li>If you've recently added funds or upgraded, wait 12-24 hours for changes to take effect</li>
+<li>Free tier has a 3 RPM limit; spend at least $5 on API usage to increase</li>
+</ul>
+<h4 id="2-incorrect-information-in-job-applications">2. Incorrect Information in Job Applications</h4>
+<p><strong>Issue:</strong> Bot provides inaccurate data for experience, CTC, and notice period</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Update prompts for professional experience specificity</li>
+<li>Add fields in <code>config.py</code> for current CTC, expected CTC, and notice period</li>
+<li>Modify bot logic to use these new config fields</li>
+</ul>
+<h4 id="3-yaml-configuration-errors">3. YAML Configuration Errors</h4>
+<p><strong>Error Message:</strong></p>
+<p>yaml.scanner.ScannerError: while scanning a simple key</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Copy example <code>config.yaml</code> and modify gradually</li>
+<li>Ensure proper YAML indentation and spacing</li>
+<li>Use a YAML validator tool</li>
+<li>Avoid unnecessary special characters or quotes</li>
+</ul>
+<h3 id="general-troubleshooting-tips">General Troubleshooting Tips</h3>
+<ul>
+<li>Use the latest version of the script</li>
+<li>Verify all dependencies are installed and updated</li>
+<li>Check internet connection stability</li>
+<li>Clear browser cache and cookies if issues persist</li>
+</ul>
+<p>For further assistance, please create an issue on the <a href="https://github.com/feder-cr/Auto_Jobs_Applier_AIHawk/issues">GitHub repository</a> with detailed information about your problem, including error messages and your configuration (with sensitive information removed).</p>
+<h2 id="documentation">Documentation</h2>
+<h3 id="for-users">For Users</h3>
+<ul>
+<li>
+<p>Ollama Setup</p>
+<ul>
+<li>Follow the instructions beloe to ensure proper configuration of <strong>AIHawk</strong> with <strong>Ollama</strong> and <strong>Gemini</strong>.</li>
+<li>Written by Rushi, <a href="https://www.linkedin.com/in/rushichaganti/">Linkedin</a>, support him by following.</li>
+<li>Step 1: If your system meets the requirements for Ollama, install it from the following URL https://ollama.com/download.</li>
+<li>Step 2: Verify Ollama is Running
+<ul>
+<li>Open a browser and navigate to localhost:11434  to confirm Ollama is running</li>
+</ul>
+</li>
+<li>If Ollama runs correctly, you'll see confirmation in the browser.</li>
+<li>Step 3: Edit Configuration in VS Code
+<ul>
+<li>Edit the file config.py located at Auto_Jobs_Applier_AIHawk\config.py with the following</li>
+<li>llm_model_type: ollama</li>
+<li>llm_model: 'llama3.2:1b'</li>
+<li>llm_api_url: 'http://127.0.0.1:11434/'</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Gemini Setup</p>
+<ul>
+<li>Follow the instructions beloe to ensure proper configuration of <strong>AIHawk</strong> with <strong>Ollama</strong> and <strong>Gemini</strong>.</li>
+<li>Written by Rushi, <a href="https://www.linkedin.com/in/rushichaganti/">Linkedin</a>, support him by following.</li>
+<li>Step 1: Get your free API key at https://aistudio.google.com/app/apikey.</li>
+<li>Step 2: Verify Ollama is Running
+<ul>
+<li>Replace llm_api_key with your newly created API key on the file secrets.yaml located at Auto_Jobs_Applier_AIHawk\data_folder\secrets.yaml</li>
+</ul>
+</li>
+<li>Step 2: Verify Ollama is Running
+<ul>
+<li>Replace llm_api_key with your newly created API key on the file secrets.yaml located at Auto_Jobs_Applier_AIHawk\data_folder\secrets.yaml</li>
+</ul>
+</li>
+<li>Step 3: Edit Configuration in VS Code
+<ul>
+<li>Edit the file config.py located at Auto_Jobs_Applier_AIHawk\config.py with the following</li>
+<li>llm_model_type: gemini</li>
+<li>llm_model: 'gemini-pro'</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Editing YAML Files</p>
+<ul>
+<li>For detailed instructions on editing YAML configuration sections for <strong>AIHawk</strong>, refer to this document:</li>
+<li><a href="https://www.scribd.com/document/788427840/Guide-Yaml-Sections">Download YAML Editing Guide (PDF)</a></li>
+<li>Written by Rushi, <a href="https://www.linkedin.com/in/rushichaganti/">Linkedin</a>, support him by following.</li>
+</ul>
+</li>
+<li>
+<p>Auto-start AIHawk</p>
+<ul>
+<li>To make <strong>AIHawk</strong> automatically start when your system boots, follow the steps in this guide:</li>
+<li><a href="https://www.scribd.com/document/788427278/guide-to-autostart-aihawk">Download Auto-start AIHawk Guide (PDF)</a></li>
+<li>Written by Rushi, <a href="https://www.linkedin.com/in/rushichaganti/">Linkedin</a>, support him by following.</li>
+</ul>
+</li>
+<li>
+<p>Video Tutorial</p>
+<ul>
+<li><a href="https://youtu.be/gdW9wogHEUM">How to set up Auto_Jobs_Applier_AIHawk</a></li>
+<li>Written by Rushi, <a href="https://www.linkedin.com/in/rushichaganti/">Linkedin</a>, support him by following.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://platform.openai.com/docs/">OpenAI API Documentation</a></p>
+</li>
+</ul>
+<h3 id="for-developers">For Developers</h3>
+<ul>
+<li>
+<p><a href="CONTRIBUTING.md">Contribution Guidelines</a></p>
+</li>
+<li>
+<p><a href="https://python.langchain.com/v0.2/docs/integrations/components/">Lang Chain Developer Documentation</a></p>
+</li>
+<li>
+<p>If you encounter any issues, you can open an issue on <a href="https://github.com/feder-cr/Auto_Jobs_Applier_AIHawk/issues">GitHub</a>.<br>
+Please add valuable details to the subject and to the description. If you need a new feature then please reflect this.<br>
+I'll be more than happy to assist you!</p>
+</li>
+<li>
+<p>Note for Contributors: If you would like to submit a Pull Request (PR), please target the <code>release</code> branch instead of <code>main</code>. The <code>release</code> branch is used for testing new code changes and will be periodically merged into <code>main</code> after validation. This approach ensures that only tested features are included in the main branch.</p>
+</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Auto_Jobs_Applier_AIHawk provides a significant advantage in the modern job market by automating and enhancing the job application process. With features like dynamic resume generation and AI-powered personalization, it offers unparalleled flexibility and efficiency. Whether you're a job seeker aiming to maximize your chances of landing a job, a recruiter looking to streamline application submissions, or a career advisor seeking to offer better services, Auto_Jobs_Applier_AIHawk is an invaluable resource. By leveraging cutting-edge automation and artificial intelligence, this tool not only saves time but also significantly increases the effectiveness and quality of job applications in today's competitive landscape.</p>
+<h2 id="star-history">Star History</h2>
+<p><a href="https://star-history.com/#feder-cr/Auto_Jobs_Applier_AIHawk&amp;Date"><img src="https://api.star-history.com/svg?repos=feder-cr/Auto_Jobs_Applier_AIHawk&amp;type=Date" alt="Star History Chart"></a></p>
+<p>If you like the project please star ⭐ the repository!</p>
+<h2 id="special-thanks">Special Thanks</h2>
+<p><a href="https://github.com/feder-cr/Auto_Jobs_Applier_AIHawk/graphs/contributors"><img src="https://img.shields.io/github/contributors/feder-cr/Auto_Jobs_Applier_AIHawk" alt="Contributors"></a></p>
+<a href="https://github.com/AIHawk-co/Auto_Jobs_Applier/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=AIHawk-co/Auto_Jobs_Applier">
+</a>
+<p>Made with <a href="https://contrib.rocks">contrib.rocks</a>.</p>
+<h2 id="license">License</h2>
+<p>This project is licensed under the AGPL License. Documentation is licensed under CC BY - see the <a href="LICENSE">AGPL LICENSE</a> and <a href="docs/LICENSE">CC BY LICENSE</a> files for details.</p>
+<p>The AGPL License requires that any derivative work must also be open source and distributed under the same license.</p>
+<p>The CC BY License permits others to distribute, remix, adapt, and build upon your work, even for commercial purposes, as long as they credit you for the original creation.</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>This tool, Auto_Jobs_Applier_AIHawk, is intended for use at your own risk. The creators / maintainers / contributors assume no responsibility for any consequences arising from its use. Users are advised to comply with the terms of service of relevant platforms and adhere to all applicable laws, regulations, and ethical guidelines. The use of automated tools for job applications may carry risks, including potential impacts on user accounts. Proceed with caution and at your own discretion.</p>
+<p><a href="#top">Back to top 🚀</a></p>
+
+</body>
+
+</html>

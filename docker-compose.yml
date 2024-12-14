@@ -1,0 +1,17 @@
+version: '3'
+services:
+  aihawk:
+    build: .
+    ports:
+      - "6080:6080" # noVNC web interface
+      - "5900:5900" # VNC port
+    volumes:
+      - ~/.aws:/root/.aws:ro # AWS credentials
+      - ./data_folder:/app/data_folder # Configuration files
+      - ./job_applications:/app/job_applications # Output folder
+    environment:
+      - DISPLAY=:99
+      - CHROME_HEADLESS=${CHROME_HEADLESS:-true} # Control headless mode
+      - DEBUG_SCREENSHOTS=${DEBUG_SCREENSHOTS:-false} # Enable screenshots
+    stdin_open: true # For interactive debugging
+    tty: true
