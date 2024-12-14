@@ -78,11 +78,18 @@ class ConfigValidator:
         """Load and parse a YAML file."""
         try:
             with open(yaml_path, "r") as stream:
-                return yaml.safe_load(stream)
+                raw_contents = stream.read()
+                response = yaml.safe_load(raw_contents)
+                return response
         except yaml.YAMLError as exc:
+            print(f"YAML parsing error: {exc}")
             raise ConfigError(f"Error reading YAML file {yaml_path}: {exc}")
         except FileNotFoundError:
+            print("File not found error")
             raise ConfigError(f"YAML file not found: {yaml_path}")
+        except Exception as e:
+            print(f"Error message: {str(e)}")
+            raise e
 
     @classmethod
     def validate_config(cls, config_yaml_path: Path) -> dict:
@@ -481,7 +488,7 @@ def main():
         # Handle selected actions and execute them
         handle_inquiries(selected_actions, config, llm_api_key)
 
-    except ConfigError as ce:
+    except Exception as ce:
         logger.error(f"Configuration error: {ce}")
         logger.error(
             "Refer to the configuration guide for troubleshooting: "

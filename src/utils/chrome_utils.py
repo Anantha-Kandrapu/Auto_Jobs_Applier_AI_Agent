@@ -7,6 +7,7 @@ from webdriver_manager.chrome import ChromeDriverManager  # Import webdriver_man
 import urllib
 from src.logging import logger
 
+
 def chrome_browser_options():
     logger.debug("Setting Chrome browser options")
     options = Options()
@@ -15,7 +16,7 @@ def chrome_browser_options():
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--ignore-certificate-errors")
     options.add_argument("--disable-extensions")
-    options.add_argument("--disable-gpu")
+    options.add_argument("--disable-gpu")  # Opzionale, utile in alcuni ambienti
     options.add_argument("window-size=1200x800")
     options.add_argument("--disable-background-timer-throttling")
     options.add_argument("--disable-backgrounding-occluded-windows")
@@ -29,15 +30,39 @@ def chrome_browser_options():
     options.add_argument("--disable-animations")
     options.add_argument("--disable-cache")
     options.add_argument("--incognito")
+    options.add_argument(
+        "--allow-file-access-from-files"
+    )  # Consente l'accesso ai file locali
+        # Check if headless mode is enabled (default to true)
+    if os.getenv("CHROME_HEADLESS", "true").lower() == "true":
+        options.add_argument("--headless")
+    options.add_argument("--disable-web-security")  # Disabilita la sicurezza web
+    options.add_argument("--disable-gpu")
+    options.add_argument("--window-size=1920,1080")
+    options.add_argument("--ignore-certificate-errors")
+
     logger.debug("Using Chrome in incognito mode")
-    
+
     return options
+
 
 def init_browser() -> webdriver.Chrome:
     try:
         options = chrome_browser_options()
         # Use webdriver_manager to handle ChromeDriver
-        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+        # Use direct path to chromedriver in Docker
+        if os.path.exists("/usr/bin/chromedriver"):
+            driver = webdriver.Chrome(
+                executable_path="/usr/bin/chromedriver", options=options
+            )
+        else:
+            # Fallback to webdriver_manager for local development
+            driver = webdriver.Chrome(
+                service=ChromeService(ChromeDriverManager().install()), options=options
+            )
+        driver = webdriver.Chrome(
+            service=ChromeService(ChromeDriverManager().install()), options=options
+        )
         logger.debug("Chrome browser initialized successfully.")
         return driver
     except Exception as e:

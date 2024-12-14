@@ -3,45 +3,41 @@ hybrid: true
 onsite: true
 
 experience_level:
-  internship: false
+  internship: true
   entry: true
-  associate: true
+  associate: false
   mid_senior_level: true
   director: false
   executive: false
 
 job_types:
   full_time: true
-  contract: false
+  contract: true
   part_time: false
   temporary: true
-  internship: false
+  internship: true
   other: false
   volunteer: true
 
 date:
   all_time: false
   month: false
-  week: false
+  week: true
   24_hours: true
 
 positions:
-  - Software engineer
+  - software engineer
 
 locations:
-  - Germany
+  - USA, United States, United States of America, US
 
 apply_once_at_company: true
 
-distance: 100
+distance: 10000
 
 company_blacklist:
   - wayfair
   - Crossover
-
-title_blacklist:
-  - word1
-  - word2
 
 location_blacklist:
   - Brazil
