@@ -21,6 +21,7 @@ import ai_hawk.llm.prompts as prompts
 from config import JOB_SUITABILITY_SCORE
 from src.utils.constants import (
     AVAILABILITY,
+    BEDROCK_CLAUDE,
     CERTIFICATIONS,
     CLAUDE,
     COMPANY,
@@ -109,6 +110,55 @@ class ClaudeModel(AIModel):
         return response
 
 
+class BedrockClaudeModel(AIModel):
+    def __init__(self, llm_model: str, profile_name: str = None):
+        import boto3
+        import json
+
+        # Initialize AWS session with profile if provided
+        if profile_name:
+            session = boto3.Session(
+                profile_name=profile_name, region_name=cfg.LLM_MODEL_REGION
+            )
+        else:
+            session = boto3.Session(region_name=cfg.LLM_MODEL_REGION)
+
+        self.bedrock = session.client(service_name="bedrock-runtime")
+        self.model_id = llm_model
+        self.model_params = cfg.LLM_MODEL_PARAMS
+        self.json = json
+        self.content_type = "application/json"
+        self.accept = "application/json"
+
+        logger.debug(
+            f"Initialized Bedrock with model {self.model_id} and profile {profile_name}"
+        )
+
+    def invoke(self, prompt: str) -> BaseMessage:
+        logger.debug(f"Invoking Bedrock API with model {self.model_id}")
+
+        request_body = {
+            **self.model_params,  # Include all model parameters
+            "messages": [
+                {"role": "user", "content": [{"type": "text", "text": prompt}]}
+            ],
+        }
+
+        try:
+            response = self.bedrock.invoke_model(
+                body=self.json.dumps(request_body),
+                modelId=self.model_id,
+                contentType=self.content_type,
+                accept=self.accept,
+            )
+            response_body = self.json.loads(response.get("body").read())
+            return response_body.get("content")
+
+        except Exception as e:
+            logger.error(f"Error invoking Bedrock model: {e}")
+            raise
+
+
 class OllamaModel(AIModel):
     def __init__(self, llm_model: str, llm_api_url: str):
         from langchain_ollama import ChatOllama
@@ -188,7 +238,7 @@ class AIAdapter:
     def _create_model(self, config: dict, api_key: str) -> AIModel:
         llm_model_type = cfg.LLM_MODEL_TYPE
         llm_model = cfg.LLM_MODEL
-
+        llm_model_profile = getattr(cfg, "LLM_MODEL_PROFILE", "default")
         llm_api_url = cfg.LLM_API_URL
 
         logger.debug(f"Using {llm_model_type} with {llm_model}")
@@ -205,6 +255,10 @@ class AIAdapter:
             return HuggingFaceModel(api_key, llm_model)
         elif llm_model_type == PERPLEXITY:
             return PerplexityModel(api_key, llm_model)
+        elif llm_model_type == BEDROCK_CLAUDE:
+            return BedrockClaudeModel(
+                llm_model=llm_model, profile_name=llm_model_profile
+            )
         else:
             raise ValueError(f"Unsupported model type: {llm_model_type}")
 
